@@ -1,0 +1,85 @@
+<script>
+    v = (s+e)/2; s=0; e=255;
+    input = document.getElementById("myInput");
+    input.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("myBtn").click();
+        }
+    });
+
+    function main() {
+        var rand=RandNumber();
+
+        if(rand===myInput){
+            e=v;
+            ContrastChanger();
+            console.log("right")
+        }
+        else{
+            v=(3*v)/2;
+            ContrastChanger();
+            console.log("wrong")
+        }
+
+
+    }
+
+
+    function activity() {
+        var input = document.getElementById("myInput");
+        input.addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                document.getElementById("myBtn").click();
+            }
+        });
+        var rand=RandNumber();
+
+        if(rand===myInput){
+            v=v/2;
+            ContrastChanger();
+            console.log("right")
+        }
+        else{
+            v=(3*v)/2;
+            ContrastChanger();
+            console.log("wrong")
+        }
+
+    }
+
+    function RandNumber() {
+        var y = document.getElementById("DisplayNumber").innerHTML = Math.floor(10 * Math.random());
+        return y;
+    }
+
+    function ContrastChanger() {
+
+
+
+        document.body.style.backgroundColor = 'rgb( ' + v + ',' + v + ',' + v + ')';
+        v = v - 20;
+    }
+
+    document.getElementById("tex").innerHTML("thi is great");
+</script>
+var usr_input = document.getElementById("myInput").value;
+
+usr_input.addEventListener("keyup", function(event) {
+event.preventDefault();
+if (event.keyCode === 13) {
+document.getElementById("myBtn").click();
+}
+});
+console.log(usr_input);
+if(rand===myInput){
+e=v;
+ContrastChanger();
+console.log("right")
+}
+else{
+v=(3*v)/2;
+ContrastChanger();
+console.log("wrong")
+}
