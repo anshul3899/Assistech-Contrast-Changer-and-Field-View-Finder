@@ -72,31 +72,40 @@
 
 <script>
     function RandNumber() {
-
+         
         return document.getElementById("DisplayNumber").innerHTML = Math.floor(10 * Math.random());;
     }
-    var rand;
+    let rand;
     function main() {
          rand=RandNumber();
        console.log(rand);
 
-    }
-    console.log(rand);
-    function activity() {
 
+    }
+
+    
+
+    function activity() {
+		// var rand2=RandNumber();
+		// console.log(rand2);
+		
         var input = document.getElementById("myInput").value;
         console.log(input);
 
-
-        while (i < 10) {
-            text += "The number is " + i;
-            i++;
-        }
+          var text;
+        if(rand == input) {
+            console.log("bingo")
+         }
+         else
+         	console.log("sucks");
         document.getElementById('myInput').value = ''
+        main();
     }
 
+
+let s=0; let e=255;
     function ContrastChanger() {
-        s=0; e=255;
+        
         v=(s+e)/2;
         var usr_input = document.getElementById("myInput").value;
 
