@@ -6,10 +6,12 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Akashdeep Bansal && Anshul Yadav && Yash Jain"/>
+    <meta name="author" content="Akashdeep Bansal && Anshul Yadav && BB"/>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          
+         
 
     <style type="text/css">
         html, body {
@@ -60,7 +62,7 @@
 
 <p id="inp">
     <span></span>
-    <input id="myInput" class="depth"/>
+    <input id="myInput"  class="depth" onkeypress="return searchKeyPress(event);"/>
 
     <span></span>
 </p>
@@ -71,48 +73,81 @@
 
 
 <script>
+
+
+var temp=0;
+
+function searchKeyPress(e)
+{
+    // look for window.event in case event isn't passed in
+    e = e || window.event;
+    if (e.keyCode == 13)
+    {
+        document.getElementById('myBtn').click();
+        return false;
+    }
+    return true;
+
+
+
+}
+
+    function SetFocus () {
+var inpu = document.getElementById ("myInput");
+inpu.focus ();
+
+}
+
     function RandNumber() {
          
-        return document.getElementById("DisplayNumber").innerHTML = Math.ceil(9 * Math.random());;
+        return document.getElementById("DisplayNumber").innerHTML = Math.floor(10 * Math.random());;
     }
     let rand; 
 
 
 
     function main() {
+        SetFocus();
          rand=RandNumber();
-       console.log(rand);
+       // console.log(rand);
 
 
     }
 
-   let s=0; let e=255;  v=(s+e)/2;
+   let s=0; let e=255;  v=(s+e)/2;	
 
     function ContrastChanger() {
         
        v=(s+e)/2;
          document.body.style.backgroundColor = 'rgb( ' + v + ',' + v + ',' + v + ')';
-         
-       
-    }
+         console.log("temp is "+temp+"v is "+v);
 
+         if(Math.abs(v-temp)<=1){
+         	alert("Your Test is over. Your Result is "+v);
+
+         }
+
+    	temp=v;    
+     //  console.log("haisd"+temp);
+    }
+    // console.log("hi");
+//console.log(temp);
 
     function activity() {
-		// var rand2=RandNumber();
-		// console.log(rand2);
 		
         var input = document.getElementById("myInput").value;
         console.log(input);
 
           var text;
+
         if(rand == input) {
-            console.log("bingo")
+            // console.log("bingo")
             e=v;
             ContrastChanger();
             
          }
          else{
-         	console.log("sucks");
+         	// console.log("sucks");
          	s=v;
          	ContrastChanger();
          }
@@ -126,6 +161,8 @@
    
 
 </script>
+
+<script type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
