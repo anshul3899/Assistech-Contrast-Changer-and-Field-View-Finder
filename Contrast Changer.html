@@ -68,8 +68,8 @@
 </p>
 
 <span class="text-center">
-		<button class="btn btn-danger    text-center" id="myBtn" onclick="activity()">Enter</button>
-		</span>
+    <button class="btn btn-danger    text-center" id="myBtn" onclick="activity()">Enter</button>
+    </span>
 
 
 <script>
@@ -100,7 +100,14 @@ inpu.focus ();
 
     function RandNumber() {
          
-        return document.getElementById("DisplayNumber").innerHTML = Math.floor(10 * Math.random());;
+        var tallies =Math.floor(10 * Math.random());
+        var tallymark="";
+        
+        for(var i=0; i< tallies; i++ ){
+          tallymark=tallymark+"|";
+        }
+        return document.getElementById("DisplayNumber").innerHTML=tallymark;
+
     }
     let rand; 
 
@@ -108,13 +115,13 @@ inpu.focus ();
 
     function main() {
         SetFocus();
-         rand=RandNumber();
-       // console.log(rand);
+        rand=RandNumber();
+        console.log(rand);
 
 
     }
 
-   let s=0; let e=255;  v=(s+e)/2;	
+   let s=0; let e=255;  v=(s+e)/2;  
 
     function ContrastChanger() {
         
@@ -123,35 +130,36 @@ inpu.focus ();
          console.log("temp is "+temp+"v is "+v);
 
          if(Math.abs(v-temp)<=1){
-         	alert("Your Test is over. Your Result is "+v);
+            v=Math.round(v,1);
+          alert("Your Test is over. Your Result is "+v);
 
          }
 
-    	temp=v;    
+      temp=v;    
      //  console.log("haisd"+temp);
     }
     // console.log("hi");
 //console.log(temp);
 
     function activity() {
-		
+    
         var input = document.getElementById("myInput").value;
         console.log(input);
 
           var text;
 
-        if(rand == input) {
+        if(rand.length == input) {
             // console.log("bingo")
             e=v;
             ContrastChanger();
             
          }
          else{
-         	// console.log("sucks");
-         	s=v;
-         	ContrastChanger();
+          // console.log("sucks");
+          s=v;
+          ContrastChanger();
          }
-         	
+          
         document.getElementById('myInput').value = ''
         main();
     }
@@ -174,4 +182,3 @@ inpu.focus ();
         crossorigin="anonymous"></script>
 </body>
 </html>
-
