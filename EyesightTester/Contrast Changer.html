@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Eye-Tester</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Akashdeep Bansal && Anshul Yadav && BB"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          
+         
+
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            height: 100%
+        }
+
+        .depth {
+            display: inline-block;
+            width: 20%;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            background: linear-gradient(#eee, #fff);
+            transition: all 0.3s ease-out;
+            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.4);
+            padding: 5px;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            color: black;
+            text-align: center;
+            font-family: customfont;
+        }
+
+        #inp span {
+            display: inline-block;
+            width: 40%;
+
+        }
+
+        span {
+            display: inline-block;
+            width: 100%;
+
+        }
+    </style>
+</head>
+
+
+<body onload="main()" style="background-color: rgb(127.5,127.5,127.5);">
+
+<br><br>
+<div class="text-center">
+    <h1 class="text-center" style="color: red; font-weight: 700; font-family: sans-serif;">Contrast Measurement
+        Test</h1>
+
+    <h1 class="text-center" style="color: black;" id="DisplayNumber"></h1>
+
+</div>
+
+<p id="inp">
+    <span></span>
+    <input id="myInput"  class="depth" onkeypress="return searchKeyPress(event);"/>
+
+    <span></span>
+</p>
+
+<span class="text-center">
+    <button class="btn btn-danger    text-center" id="myBtn" onclick="activity()">Enter</button>
+    </span>
+
+
+<script>
+
+
+var temp=0;
+
+function searchKeyPress(e)
+{
+    // look for window.event in case event isn't passed in
+    e = e || window.event;
+    if (e.keyCode == 13)
+    {
+        document.getElementById('myBtn').click();
+        return false;
+    }
+    return true;
+
+
+
+}
+
+    function SetFocus () {
+var inpu = document.getElementById ("myInput");
+inpu.focus ();
+
+}
+
+    function RandNumber() {
+         
+        var tallies =Math.floor(10 * Math.random());
+        var tallymark="";
+        
+        for(var i=0; i< tallies; i++ ){
+          tallymark=tallymark+"|";
+        }
+        return document.getElementById("DisplayNumber").innerHTML=tallymark;
+
+    }
+    let rand; 
+
+
+
+    function main() {
+        SetFocus();
+        rand=RandNumber();
+        console.log(rand);
+
+
+    }
+
+   let s=0; let e=255;  v=(s+e)/2;  
+
+    function ContrastChanger() {
+        
+       v=(s+e)/2;
+         document.body.style.backgroundColor = 'rgb( ' + v + ',' + v + ',' + v + ')';
+         console.log("temp is "+temp+"v is "+v);
+
+         if(Math.abs(v-temp)<=1){
+            v=Math.round(v,1);
+          alert("Your Test is over. Your Result is "+v);
+
+         }
+
+      temp=v;    
+     //  console.log("haisd"+temp);
+    }
+    // console.log("hi");
+//console.log(temp);
+
+    function activity() {
+    
+        var input = document.getElementById("myInput").value;
+        console.log(input);
+
+          var text;
+
+        if(rand.length == input) {
+            // console.log("bingo")
+            e=v;
+            ContrastChanger();
+            
+         }
+         else{
+          // console.log("sucks");
+          s=v;
+          ContrastChanger();
+         }
+          
+        document.getElementById('myInput').value = ''
+        main();
+    }
+
+
+
+   
+
+</script>
+
+<script type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

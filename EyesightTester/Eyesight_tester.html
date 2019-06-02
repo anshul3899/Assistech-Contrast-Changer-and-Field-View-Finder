@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Eye-Tester Module-2</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Akashdeep Bansal && Anshul Yadav && BB"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style type="text/css">
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="1530" height="848" >
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+'use strict'
+// var s="abc";
+// var d=getAllPermutations(s);
+// console.log(d[ Math.floor(6*Math.random())]);
+function permute(permutation) {
+  var length = permutation.length,
+      result = [permutation.slice()],
+      c = new Array(length).fill(0),
+      i = 1, k, p;
+  while (i < length) {
+    if (c[i] < i) {
+      k = i % 2 && c[i];
+      p = permutation[i];
+      permutation[i] = permutation[k];
+      permutation[k] = p;
+      ++c[i];
+      i = 1;
+      result.push(permutation.slice());
+    } else {
+      c[i] = 0;
+      ++i;
+    }
+  }
+  return result;
+}
+var d1=permute([1, 2, 3 ,4, 5, 6, 7, 8 , 9 , 10]);
+// [Math.floor(9*Math.random())]
+// console.log(d1[Math.floor(362799*Math.random())]);
+var d0=d1[Math.floor(362799*Math.random())];
+// console.log(d0);
+var d2=d1[Math.floor(362799*Math.random())];
+for (var i = 0; i < 10; ++i) {
+   d2[i]+=10;
+}
+// console.log(d2);
+var d3=d1[Math.floor(362799*Math.random())];
+for (var i = 0; i < 10; ++i) {
+   d3[i]=d3[i]+20;
+}
+// console.log(d3);
+var d4=d1[Math.floor(362799*Math.random())];
+for (var i = 0; i < 10; ++i) {
+   d4[i]=d4[i]+30;
+}
+// console.log(d4);
+var d5=d1[Math.floor(362799*Math.random())];
+for (var i = 0; i < 10; ++i) {
+   d5[i]=d5[i]+40;
+}
+// console.log(d5);
+var d6=d1[Math.floor(362799*Math.random())];
+for (var i = 0; i < 10; ++i) {
+   d6[i]=d6[i]+50;
+}
+// console.log(d6);
+var e1=[];
+var e2=[];
+var e3=[];
+var e4=[];
+var e5=[];
+var e6=[];
+var e7=[];
+var e8=[];
+var e9=[];
+var e10=[];
+e1[0]=d0[0];
+e1[1]=d2[0];
+e1[2]=d3[0];
+e1[3]=d4[0];
+e1[4]=d5[0];
+e1[5]=d6[0];
+// console.log(e1);
+e2[0]=d0[1];
+e2[1]=d2[1];
+e2[2]=d3[1];
+e2[3]=d4[1];
+e2[4]=d5[1];
+e2[5]=d6[1];
+// console.log(e2);
+e3[0]=d0[2];
+e3[1]=d2[2];
+e3[2]=d3[2];
+e3[3]=d4[2];
+e3[4]=d5[2];
+e3[5]=d6[2];
+// console.log(e3);
+e4[0]=d0[3];
+e4[1]=d2[3];
+e4[2]=d3[3];
+e4[3]=d4[3];
+e4[4]=d5[3];
+e4[5]=d6[3];
+// console.log(e4);
+e5[0]=d0[4];
+e5[1]=d2[4];
+e5[2]=d3[4];
+e5[3]=d4[4];
+e5[4]=d5[4];
+e5[5]=d6[4];
+// console.log(e5);
+e6[0]=d0[5];
+e6[1]=d2[5];
+e6[2]=d3[5];
+e6[3]=d4[5];
+e6[4]=d5[5];
+e6[5]=d6[5];
+// console.log(e6);
+e7[0]=d0[6];
+e7[1]=d2[6];
+e7[2]=d3[6];
+e7[3]=d4[6];
+e7[4]=d5[6];
+e7[5]=d6[6];
+// console.log(e7);
+e8[0]=d0[7];
+e8[1]=d2[7];
+e8[2]=d3[7];
+e8[3]=d4[7];
+e8[4]=d5[7];
+e8[5]=d6[7];
+// console.log(e8);
+e9[0]=d0[8];
+e9[1]=d2[8];
+e9[2]=d3[8];
+e9[3]=d4[8];
+e9[4]=d5[8];
+e9[5]=d6[8];
+// console.log(e9);
+e10[0]=d0[9];
+e10[1]=d2[9];
+e10[2]=d3[9];
+e10[3]=d4[9];
+e10[4]=d5[9];
+e10[5]=d6[9];
+// console.log(e10);
+var mat = e1.concat(e2,e3,e4,e5,e6,e7,e8,e9,e10);
+// console.log(mat);
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.rect(80, 80, 150, 100);
+ctx.fillStyle = "black";
+ctx.fillRect(0, 0, c.width, c.height);
+// function myFunction(){
+// ++i;
+// }
+var posx = 0;
+var posy = 0;
+var heck=0;
+// for (var i = 0; i < 60; ++i) {
+// 	posx=((mat[i]-1)%10)*100+50;
+// 	heck=Math.floor((mat[i]-1)/10);
+// 	posy=heck*100+50;
+// 	console.log("posx=",posx,"posy=",posy)
+	
+// 	setTimeout(function(){ draw(posx,posy); }, 3000);
+// }
+var i=0;
+ var globalArray=[];
+ globalArray[0]=[];
+ globalArray[1]=[];
+var varCounter = 0;
+var mx; var my;
+  
+var arr=[];
+var intervalId =setInterval(function(){ 
+	posx=((mat[i]-1)%10)*153+76.5;
+	heck=Math.floor((mat[i]-1)/10);
+	posy=heck*140.333+70.6666;
+	console.log(mat[i]);
+	draw(posx,posy);
+  document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+        arr.push(mat[i]);
+    }
+}
+console.log(arr);
+	i++;
+  stopEx();	
+}, 2000);
+
+function stopEx(){
+     if(varCounter >= 60) {
+           clearInterval(intervalId);
+
+           arr.sort(function(a, b){return a-b});
+           console.log(arr);
+           secondlevel();
+
+
+     } else {
+         varCounter++;
+         // console.log("counter"+varCounter);
+     }
+
+}
+
+function draw(posx,posy) {
+  ctx.fillStyle = randomColor();
+  ctx.beginPath();
+  ctx.arc(posx, posy, 10, 0, 2 * Math.PI);
+  ctx.fill();
+  ctx.fillStyle = "white";
+  ctx.beginPath();
+  ctx.arc(765,424 , 10, 0, 2 * Math.PI);
+  ctx.fill();
+     setTimeout(clearFunction, 1500);
+}
+
+
+function getCoordinate( p){
+var px = (p%10);
+px=px*c.width/10;
+px=px-c.width/20;
+var py = (p/10);
+py=py*c.height/6;
+py=py-c.height/12;
+var coord=[];
+coord.push(px);
+coord.push(py);
+return coord;
+}
+ 
+
+ var myVarCounter=0;
+ var myIntervalId;
+
+ function myDraw( sx,  sy){
+  console.log(sx+" "+sy)
+  ctx.fillStyle = randomColor();
+  ctx.beginPath();
+  ctx.arc(sx, sy, 10, 0, 2 * Math.PI);
+  ctx.fill();
+
+  ctx.fillStyle = "white";
+  ctx.beginPath();
+  ctx.arc(765,424 , 10, 0, 2 * Math.PI);
+  ctx.fill();
+
+ 
+
+  // setTimeout(clearFunction, 100000);
+  // return check();
+
+
+    myIntervalId =setInterval(function(){ 
+     return myStopEx();  
+   }, 2000);
+
+    
+
+}
+
+
+function myStopEx(){
+     if(myVarCounter >= 1 ) {
+            clearInterval(myIntervalId);
+          
+       
+
+     } else {
+         myVarCounter++;
+         document.body.onkeyup = function(e){
+              
+              if(e.keyCode == 32){
+                 console.log("hid")
+                 return true;
+                }
+
+          }
+          return false;
+         
+     }
+
+}
+
+function idown( x){
+  console.log("down is called");
+var coordArr=getCoordinate(x);
+var tempx=coordArr[0];
+ var tempy=coordArr[1];
+ console.log(tempx+" "+tempy);
+   if(myDraw(tempx-c.width/40,tempy+c.height/12)){
+      idd(tempx-c.width/40,tempy+c.height/12);
+   }
+   else{
+          idu(tempx-c.width/40,tempy+c.height/12);
+      }
+      if(myDraw(tempx+c.width/40,tempy+c.height/12)){
+         idd(tempx+c.width/40,tempy+c.height/12);
+      }
+      else{
+         idu(tempx+c.width/40,tempy+c.height/12);
+         
+         }
+         if(myDraw(tempx,tempy+c.height/12)){
+            idd(tempx,tempy+c.height/12);
+         }
+         else{
+            idu(tempx,tempy+c.height/12);
+            
+            }
+}
+
+
+function iup( x){
+ console.log("up is called");
+var coordArr=getCoordinate(x);
+var tempx=coordArr[0];
+ var tempy=coordArr[1];
+  console.log(tempx+" "+tempy);
+   if(myDraw(tempx-c.width/40,tempy-c.height/12)){
+      iuu(tempx-c.width/40,tempy-c.height/12);
+   }
+   else{
+      iud(tempx-c.width/40,tempy-c.height/12);
+      }
+      if(myDraw(tempx+c.width/40,tempy-c.height/12)){
+         iuu(tempx+c.width/40,tempy-c.height/12);
+      }
+      else{
+         iud(tempx+c.width/40,tempy-c.height/12);
+         }
+         if(myDraw(tempx,tempy-c.height/12)){
+            iuu(tempx,tempy-c.height/12);
+         }
+         else{
+            iud(tempx,tempy-c.height/12);
+            }
+}
+
+
+function ileft( x){
+ console.log("left is called");
+var coordArr=getCoordinate(x);
+var tempx=coordArr[0];
+ var tempy=coordArr[1];
+  console.log(tempx+" "+tempy);
+   if(myDraw(tempx-c.width/20,tempy-c.height/24)){
+      ill(tempx-c.width/20,tempy-c.height/24);
+   }
+   else{
+      ilr(tempx-c.width/20,tempy-c.height/24);
+      }
+        if(myDraw(tempx-c.width/20,tempy+c.height/24)){
+      ill(tempx-c.width/20,tempy+c.height/24);
+   }
+   else{
+      ilr(tempx-c.width/20,tempy+c.height/24);
+      }
+        if(myDraw(tempx-c.width/20,tempy)){
+      ill(tempx-c.width/20,tempy);
+   }
+   else{
+      ilr(tempx-c.width/20,tempy);
+      }
+}
+
+
+function iright( x){
+ console.log("right is called");
+var coordArr=getCoordinate(x);
+var tempx=coordArr[0];
+ var tempy=coordArr[1];
+  console.log(tempx+" "+tempy);
+   if(myDraw(tempx+c.width/20,tempy-c.height/24)){
+      irr(tempx+c.width/20,tempy-c.height/24);
+
+   }
+   else{
+      irl(tempx+c.width/20,tempy-c.height/24);
+      }
+       if(myDraw(tempx+c.width/20,tempy+c.height/24)){
+      irr(tempx+c.width/20,tempy+c.height/24);
+   }
+   else{
+      irl(tempx+c.width/20,tempy+c.height/24);
+      }
+       if(myDraw(tempx+c.width/20,tempy)){
+      irr(tempx+c.width/20,tempy);
+   }
+   else{
+      irl(tempx+c.width/20,tempy);
+      }
+}
+
+function iud( mx, my){
+
+if (myDraw(mx ,my +c.height/24)){
+globalArray[1].push(my +c.height/24);
+globalArray[0].push(mx);  
+}
+else{
+ globalArray[1].push(my);
+globalArray[0].push(mx);  
+}
+}
+
+function iuu( mx,  my){
+if (myDraw(mx ,my -c.height/24)){
+globalArray[1].push(my -c.height/24);
+globalArray[0].push(mx);  
+}
+else{
+ globalArray[1].push(my -c.height/12);
+globalArray[0].push(mx);  
+}
+}
+
+function idu( mx,  my){
+
+if (myDraw(mx ,my -c.height/24)){
+globalArray[1].push(my -c.height/24);
+globalArray[0].push(mx);  
+}
+else{
+ globalArray[1].push(my);
+globalArray[0].push(mx);  
+}
+}
+
+function idd( mx,  my){
+if (myDraw(mx ,my +c.height/24)){
+globalArray[1].push(my +c.height/24);
+globalArray[0].push(mx);  
+}
+else{
+ globalArray[1].push(my +c.height/12);
+globalArray[0].push(mx);  
+}
+}
+
+function ill( mx,  my){
+if (myDraw(mx - c.width/40,my)){
+globalArray[1].push(my);
+globalArray[0].push(mx - c.width/40);  
+}
+else{
+ globalArray[1].push(my);
+globalArray[0].push(mx);  
+}
+}
+
+function ilr( mx,  my){
+
+if (myDraw(mx + c.width/40 ,my)){
+globalArray[1].push(my);
+globalArray[0].push(mx + c.width/40);  
+}
+else{
+ globalArray[1].push(my);
+globalArray[0].push(mx + c.width/20);  
+}
+}
+
+function irr( mx, my){
+if (myDraw(mx + c.width/40 ,my)){
+globalArray[1].push(my);
+globalArray[0].push(mx + c.width/40);  
+}
+else{
+ globalArray[1].push(my);
+globalArray[0].push(mx);  
+}
+}
+
+function irl( mx,  my){
+
+if (myDraw(mx - c.width/40,my)){
+globalArray[1].push(my);
+globalArray[0].push(mx - c.width/40);  
+}
+else{
+ globalArray[1].push(my);
+globalArray[0].push(mx  - c.width/20);  
+}
+}
+
+function iud( mx,  my){
+var aa =1;
+var bb =1;
+while(c==1)
+if (myDraw(mx ,my +c.height/24)){
+globalArray[1].push(my +c.height/24);
+globalArray[0].push(mx);  
+}
+else{
+ globalArray[1].push(my +c.height/12);
+globalArray[0].push(mx);  
+}
+}
+
+function secondlevel(){
+
+    for(var j=0; j<arr.length;j++){
+         var box=arr[j];
+         console.log(arr[j]);
+         if( Math.floor(box/10 != 5) ){
+           var temp1=arr.indexOf(box+10);
+           console.log(temp1);
+         if (temp1 == -1) {
+            idown(box);
+         }
+         }
+        if( Math.floor(box/10 != 0) ){
+         var temp2=arr.indexOf(box-10);
+         console.log(temp2);
+         if (temp2 == -1) {
+            iup(box);
+         }
+        }
+        if(box%10!=1){
+         var temp3=arr.indexOf(box-1);
+         console.log(temp3);
+         if (temp3 == -1) {
+            ileft(box);
+         } 
+        }
+         
+        if(box%10 != 0){
+         var temp4=arr.indexOf(box+1);
+         console.log(temp4);
+         if (temp4 == -1) {
+            iright(box);
+         }
+        }
+    }
+}
+console.log(globalArray);
+function randomColor() {
+  /*For randomColored dots
+  var color = [];
+  for (var i = 0; i < 3; ++i) {
+    color.push(Math.floor(Math.random() * 256));
+  }
+  return 'rgb(' + color.join(',') + ')';*/
+  // For yello dots
+  var v=255; var z=0;
+  return 'rgb( ' + v + ',' + v + ',' + z + ')';
+}
+function clearFunction(){
+ctx.fillStyle = "black";
+ctx.fillRect(0, 0, c.width, c.height);
+ctx.fillStyle = "white";
+  ctx.beginPath();
+  ctx.arc(765, 424, 10, 0, 2 * Math.PI);
+  ctx.fill();
+ctx.clearRect(0, 0, c.width, c.height);
+ctx.fillStyle = "black";
+ctx.fillRect(0, 0, c.width, c.height);
+ctx.fillStyle = "white";
+  ctx.beginPath();
+  ctx.arc(765,424 , 10, 0, 2 * Math.PI);
+  ctx.fill();
+}
+</script> 
+
+</body>
+</html>
